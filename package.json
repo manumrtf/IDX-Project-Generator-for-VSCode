@@ -1,0 +1,93 @@
+{
+  "name": "quick-project-generator",
+  "displayName": "Quick Project Generator",
+  "description": "a quick framework project generator based on IDX Google editor",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "idx-project-generator.start",
+        "title": "Create a new project"
+      }
+    ],
+ 
+    "configuration": {
+      "title": "Project Init Commands",
+      "properties": {
+        "projectInitCommands.angular": {
+          "type": "string",
+          "default": "ng new",
+          "description": "Angular initialization command"
+        },
+        "projectInitCommands.react": {
+          "type": "string",
+          "default": "npm -y create vite@latest -- --template react",
+          "description": "React initialization command"
+        },
+        "projectInitCommands.nextjs": {
+          "type": "string",
+          "default": "npx -y create-next-app",
+          "description": "Next.js initialization command"
+        },
+        "projectInitCommands.vuejs": {
+          "type": "string",
+          "default": "npm -y create vite@latest -- --template vue",
+          "description": "Vue.js initialization command"
+        },
+        "projectInitCommands.laravel": {
+          "type": "string",
+          "default": "composer create-project laravel/laravel",
+          "description": "Laravel initialization command"
+        },
+        "projectInitCommands.remix": {
+          "type": "string",
+          "default": "npx -y create-remix@latest",
+          "description": "Remix initialization command"
+        },
+        "projectInitCommands.astro": {
+          "type": "string",
+          "default": "npm -y create astro@latest",
+          "description": "Astro initialization command"
+        },
+        "projectInitCommands.nuxt": {
+          "type": "string",
+          "default": "npx nuxi@latest init",
+          "description": "Nuxt initialization command"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.87.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "ts-loader": "^9.5.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
